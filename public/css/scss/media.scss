@@ -1,0 +1,438 @@
+/* Tablets (вертикальная и горизонтальная) ----------- */
+@media only screen and (max-width: 1020px) {
+
+  body{
+    position: relative;
+  }
+
+
+  // HEADER=========
+  .header{
+    padding: 0 10px;
+
+    &-nav{
+      &__items{
+        display: none;
+      }
+    }
+
+    &-contact{
+      &__socials{
+        display: none;
+      }
+  
+      &__menu{
+        @include flexbox;
+        width: 20px;
+        height: 20px;
+        background: transparent;
+        cursor: pointer;
+        
+        &:focus{
+          outline: none;
+        }
+        >i{
+          font-size: 1.2em;
+          color: $font-global-color;
+        }
+      
+      }
+    }
+  }
+  // end HEADER======== 
+
+
+  // SECTIONS=======================
+  // ========= INTRO
+  .intro{
+    &-wrapper{
+      img{
+        width: 150px;
+        height: 150px;
+        display: inline-block;
+      }
+      h1{
+        font-size: 2em;
+      } 
+
+      p i{
+        font-size: 1em;
+      }
+    }
+  }
+  // ========= end of INTRO
+
+
+  // MENU-RESTOURANT=================== 
+  .menu-restourant{
+    flex-direction: column;
+    height: auto;
+
+    &-left-side{
+      width: 100%;
+      text-align: center;
+      margin: 20px auto;
+
+      >h1{
+        font-size: 1.5em;
+        line-height: 1.2em;
+      }
+    }
+
+    &-right-side{
+      width: 100%;
+      margin: 0 auto;
+
+      &_bg{
+        height: 300px;
+      }
+    }
+  }
+  // MENU-RESTOURANT=================== 
+
+
+
+  // MENU-REVIEW=================== 
+  .menu-review{
+    &-center-side{ 
+      >p{
+        font-size: 1.2em;
+        line-height: 1.2em;
+        padding: 30px;
+      }
+    }
+  }
+  // MENU-REVIEW=================== 
+
+
+
+  // INTERIOR===============
+  .interior{
+    flex-direction: column-reverse;
+    height: auto;
+
+    &-right-side{
+      width: 100%;
+      padding: 20px 0;
+      margin: 0 auto; 
+
+      &_bg{
+        height: 300px;
+      }
+    }
+
+    &-left-side{
+      width: 100%;
+      margin-top: 20px;
+
+      >h1{
+        font-size: 1.5em;
+      }
+    }
+  }
+  // INTERIOR===============
+
+
+
+  // DISHES===============
+  .dishes{
+    padding: 40px 10px;
+
+    &-top-side{
+      &_bg{
+        height: 300px;
+        margin: 0 5px;
+      }
+    }
+
+    &-bottom-side{
+      >h1{
+        font-size: 1.5em;
+        line-height: 1.2em;
+        margin: 20px;
+      }
+
+      >p{
+        margin: 20px;
+      }
+    }
+  }
+  // DISHES===============
+
+
+
+  // ADDRESS===========
+  .address{
+    height: auto;
+    padding: 40px 10px;
+
+    &-footer, &-header{
+      padding: 5px 10px;
+      margin-bottom: 20px;
+    }
+    &-header p{
+      font-size: 1.3em;
+      line-height: 1.3em;
+    }
+
+    iframe{
+      height: 300px;
+      margin-bottom: 20px;
+    }
+  }
+  // ADDRESS===========
+
+
+  // FOOTER==========
+  .footer{
+    height: auto;
+    padding: 20px;
+
+    &-nav{
+      &__items{
+        >li{
+          padding: 0 5px;
+          >a{
+            font-size: 0.8em;
+            line-height: 1;
+          }
+        }
+      }
+    }
+
+    &-logo{
+      width: 40%;
+
+      p{
+        text-align: right;
+        font-weight: 500;
+        font-size: 1em;
+        line-height: 1.2em;
+      }
+    }
+  }
+
+  // end FOOTER==========
+
+
+
+
+
+
+  // MENU===========
+  .menu{
+    @include flexbox;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    .close-animatedModal{
+      position: absolute;
+      top: 20px;
+      right: 20px;
+      
+      width: 40px;
+      height: 40px;
+      border: 1px solid $menu-btn-color;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      background: transparent;
+
+      >i{
+        font-size: 1.3em;
+        line-height: 40px;
+      }
+    }
+
+    .nav{
+      position: absolute;
+      border: 1px solid $menu-btn-color;
+      border-radius: 50%;
+      text-align: center;
+      cursor: pointer;
+      background: transparent;
+      transition: all .3s linear;
+    }
+
+    .nav-socials-1{
+      bottom: 160px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+
+      >i{
+        font-size: 1.1em;
+        line-height: 40px;
+      }
+    }
+
+    .nav-socials-2{
+      bottom: 100px;
+      right: 20px;
+      width: 40px;
+      height: 40px;
+
+      >i{
+        font-size: 1.1em;
+        line-height: 40px;
+      }
+    }
+
+    .nav-phone-number{
+      bottom: 20px;
+      right: 20px;
+      width: 60px;
+      height:60px;
+      
+      >i{
+        font-size: 1.5em;
+        line-height: 60px;
+      }
+    }
+
+    .modal-content{
+      @include boxsizing;
+      .menu__items{
+        @include boxsizing;
+
+        >li{
+          padding: 20px 60px;
+          border-bottom: 2px solid #fff;
+          text-align: center;
+          transition: background .3s ease-in-out;
+          
+          a{
+            color: #fff;
+            font-weight: 100;
+            font-size: 1.4em;
+            line-height: 1.4em;
+            transition: color .3s ease-in-out;
+          }
+
+          &:hover a{
+            color: #000;
+          }
+
+          &:hover{
+            border-bottom: 2px solid $menu-btn-color;
+            background-color: $menu-btn-color;
+          }
+        }
+      }
+    }    
+  }
+  // end MENU===========
+
+
+  .popupmodal{
+    display: none;
+  }
+}
+
+
+/* Smartphones (вертикальная и горизонтальная ориентация) ----------- */
+@media only screen and (max-width : 480px) {
+
+  // HEADER=========
+  .header{
+    height: 50px;
+  }
+  // end HEADER======== 
+
+
+  // SECTIONS=======================
+  // ========= INTRO
+
+  // ========= end of INTRO
+
+  // MENU-RESTOURANT=================== 
+  .menu-restourant{
+    padding: 0 10px;
+
+    &-left-side{
+      >h1{
+        margin: 20px;
+      }
+      >p{
+        margin: 20px;
+      }
+    }
+  }
+
+  // end MENU-RESTOURANT=================== 
+
+
+
+  // MENU-REVIEW=================== 
+
+  // end MENU-REVIEW=================== 
+
+
+
+  // INTERIOR===============
+  .interior{
+    padding: 0 10px;
+
+    &-left-side{
+      >h1{
+        margin: 20px;
+      }
+
+      >p{
+        margin: 20px;
+      }
+    }
+  }
+
+  // end INTERIOR===============
+
+  // DISHES===============
+
+
+  // end DISHES===============
+
+  // ADDRESS===========
+  .address{
+    iframe{
+      height: 500px;
+    }
+  }
+  // end ADDRESS===========
+
+
+  // FOOTER==========
+  .footer{
+    padding: 10px;
+
+    &-nav{
+      &__items{
+        flex-direction: column;
+        
+        >li{
+          padding: 5px;
+        }
+      }
+    }
+
+    &-logo{
+      width: 50%;
+    }
+  }
+  // end FOOTER==========
+
+
+
+
+
+
+
+  // MENU===========
+
+  // end MENU===========
+
+
+  .popupmodal{
+    display: none;
+  }
+}

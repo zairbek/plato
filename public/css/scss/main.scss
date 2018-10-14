@@ -1,0 +1,729 @@
+// VARIABLES ========================
+// bg-colors
+$wrapper-background: rgba(226, 226, 226, 0);
+$header-background: rgb(0, 0, 0);
+$hover-bg: rgba(250, 250, 250, 1);
+$section-background: rgba(0, 0, 0, 0.329);
+$menu-review-center-side-bg: rgb(0,0,0);
+//  fonts
+$font-global-color: #fff;
+$socials-hover-color: rgb(46, 171, 255);
+$hover-color: #000;
+// btn
+$btn:rgb(46, 255, 255);
+$btn-hover:rgb(255,255,255);
+// scripts
+$popupmodal-bg:  rgb(23, 173, 233);
+$popupmodal-color:  #fff;
+$viewimg-color:  #fff;
+$viewimg-btn:  #000;
+$loading-bg: #fff;
+$menu-btn-color: white;
+// VARIABLES ========================
+
+@mixin boxsizing{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@mixin flexbox {
+  display: -webkit-box; 
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex; 
+  display: flex;
+}
+
+
+// CSS RESET ========================
+* {
+	margin: 0;
+	padding: 0;
+	border: 0;
+  vertical-align: baseline;
+  font-family: Comfortaa;
+  color: $font-global-color;
+
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+// end of CSS RESET ========================
+
+html, body{
+  width: 100%;
+
+  .wrapper{
+    width: 100%;
+    position: relative;
+    background: $wrapper-background;
+
+    .bg{
+      position: fixed;
+      top: 0; left: 0; bottom: 0;right: 0; 
+      z-index: -1;
+      background: radial-gradient(circle, rgba(22, 48, 86, 0), rgb(22, 48, 86) 60%) , url(../image/bg.jpg) no-repeat center, #000;
+
+      >img{
+        position: absolute;
+        top: 0; left: 0; 
+        z-index: -0;
+        object-fit: contain;
+        
+      }
+    }
+  }
+}
+
+
+
+// HEADER============
+.header{
+  width: 100%;
+  height: 40px;
+  padding: 0 30px;
+  position: fixed;
+  top: 0;
+  z-index: 3;
+  background: $header-background;
+  @include flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  @include boxsizing;
+
+  &-logo{
+    p{
+      font-weight: 900;
+      font-size: 1.1em;
+      color: $font-global-color;
+
+    }
+  }
+
+  &-nav{  
+    &__items{
+      @include flexbox;
+      flex-direction: row;
+      
+      >li{
+        padding: 0 10px;
+        transition: all .3s linear;
+
+        >a{
+          font-size: 0.9em;
+          line-height: 40px;
+          color: $font-global-color;
+          transition: all .3s linear;
+        }
+
+        &:hover{
+          background-color: $hover-bg;
+
+          > a{
+            color: $hover-color;
+          }
+        }
+      }
+    }
+  }
+
+
+
+  &-contact{
+
+    &__socials{
+      @include flexbox;
+      flex-direction: row;
+      justify-content: center;
+      align-content: center;
+    
+      >li{
+        padding: 0 8px;
+        transition: all .3s linear;
+
+        >a{
+          >i{
+            font-size: 1.2em;
+            line-height: 30px;
+            color: $font-global-color;
+            transition: all .3s linear;
+
+          }
+        }
+
+        &:hover{
+          border-radius: 5px;
+          background-color: $hover-bg;
+        
+          >a >i {
+            color: $socials-hover-color;
+          }
+        }
+      }
+    }
+
+
+    &__menu{
+      display: none;
+    }
+  }
+
+}
+// end HEADER============
+
+
+// SECTIONS=======================
+// SECTION==========
+section{
+  @include flexbox;
+  width: 100%;
+  margin: 50px auto 0;
+  border-radius: 5px;
+  @include boxsizing;
+
+}
+
+// ========= INTRO
+.intro{
+  position: relative;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: 0;
+  background: url("../image/content/intro/image.jpg") no-repeat;
+  background-size: cover;
+
+  &-header{
+
+  }
+
+  &-wrapper{
+
+    width: 80%;
+    text-align: center;
+    color: $font-global-color;
+    
+    img{
+      width: 200px;
+      height: 200px;
+      display: inline-block;
+      margin-bottom: 20px;
+      outline: 1px solid red;
+    }
+
+    h1{
+      margin-bottom: 20px;
+      font-size: 3em;
+    } 
+
+    p i{
+      font-size: 1.3em;
+      line-height: 1.3em;
+    }
+  }
+
+
+  &-footer{
+    width: 100%;
+    height: 60px;
+
+
+    &__arrow{
+      display: block;
+      width: 50px;
+      height: 50px;
+      margin: 0 auto;
+      border: 1px solid $btn;
+      border-radius: 50%;
+      background: transparent;
+      cursor: pointer;
+      text-align: center;
+
+      &:focus{
+        outline: none;
+      }
+      >i{
+        line-height: 50px;
+        font-size: 1em;
+        color: $btn;
+      }
+    }
+  }
+}
+// ========= end of INTRO
+
+
+// MENU-RESTOURANT=================== 
+.menu-restourant{  
+  flex-direction: row;
+  height: 600px;
+  padding: 0 10%;
+  background-color: $section-background;
+
+  &-left-side{
+    width: 45%;
+    @include flexbox;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: right;
+
+    >h1{
+      font-size: 2em;
+      line-height: 1.2em;
+      margin: 20px 40px;
+      text-decoration: underline;
+    }
+
+    >p{
+      font-size: 1em;
+      font-style: italic;
+      line-height: 1.5em;
+      margin: 20px 40px;
+    }
+
+    &-link-to{
+      margin-top: 20px;
+      width: 150px;
+      height: 40px;
+      background-color: transparent;
+      border: 2px solid $btn;
+      border-radius: 20px;
+      font-size: 1em;
+      text-align: center;
+      line-height: 40px;
+      transition: all .2s ease-in-out;
+  
+      &:focus, &:active, &:hover{
+        background-color: $btn;
+        border: 2px solid $btn-hover;
+        color:$hover-color; 
+      }
+    }
+
+  }
+
+  &-right-side{
+    width: 55%;
+    padding: 50px 0;
+    display: block;
+    @include boxsizing;
+
+    &_bg{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+
+  }
+
+}
+
+// MENU-RESTOURANT=================== 
+
+
+
+
+// MENU-REVIEW=================== 
+.menu-review{
+  position: relative;
+  flex-direction: row;
+  
+  height: 600px;
+  padding: 0 10%;
+
+
+  &-bg-side{
+    position: absolute;
+    left: 0;top: 0;right: 0;bottom: 0;
+    z-index: 0;
+   
+    >img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+
+  &-center-side{ 
+    width: 70%;
+    @include flexbox;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin: auto;
+    text-align: center;
+
+    position: absolute;
+    left: 0;top: 0;right: 0;bottom: 0;
+    z-index: 0;
+
+
+    >p{
+      font-size: 1.4em;
+      line-height: 1.5em;
+      padding: 20px;
+      background-color: $menu-review-center-side-bg;
+    }
+  }
+}
+
+// MENU-REVIEW=================== 
+
+
+
+
+// INTERIOR===============
+.interior{
+  flex-direction: row;
+  height: 500px;
+  padding: 0 10%;
+  background-color: $section-background;
+
+  &-right-side{
+    width: 55%;
+    display: block;
+    padding: 50px 0; 
+
+    &_bg{
+      object-fit: cover;
+      width: 100%;
+      height: 400px;
+      margin: 0 5px;
+    }
+  }
+
+  &-left-side{
+    width: 45%;
+    @include flexbox;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    text-align: center;
+
+    >h1{
+      font-size: 2em;
+      line-height: 1.2em;
+      margin: 20px 40px;
+      text-decoration: underline;
+    }
+
+    >p{
+      font-size: 1em;
+      font-style: italic;
+      line-height: 1.5em;
+      margin: 20px 40px;
+    }
+  }
+}
+// INTERIOR===============
+
+// DISHES===============
+.dishes{
+  flex-direction: column;
+  align-items: center;
+  padding: 50px 5%;
+  background-color: $section-background;
+
+  &-top-side{
+    width: 100%;
+
+    &_bg{
+      object-fit: cover;
+      width: 100%;
+      height: 500px;
+      margin: 0 10px;
+    }
+  }
+
+  &-bottom-side{
+    width: 100%;
+    text-align: center;
+
+    >h1{
+      font-size: 2em;
+      line-height: 1.2em;
+      margin: 20px 40px;
+      text-decoration: underline;
+    }
+
+    >p{
+      font-size: 1em;
+      font-style: italic;
+      line-height: 1.5em;
+      text-align: center;
+      margin: 20px 40px 40px;
+    }
+  }
+}
+// DISHES===============
+
+
+// ADDRESS===========
+.address{
+  flex-direction: column;
+  background-color: $section-background;
+
+  &-footer, &-header{
+    width: 100%;
+    padding: 20px 20%;
+    @include flexbox;
+    flex-direction: column;
+    justify-content: center;
+    @include boxsizing;
+}
+
+  &-header p{
+    text-align: center;
+    font-size: 1.5em;
+  }
+
+  &-footer p{
+    text-align: center;
+    font-size: 1.1em;
+    line-height: 1.1em;
+  }
+
+  iframe{
+    width: 100%;
+    height: 450px;
+    border-radius: 5px;
+  }
+}
+
+// end ADDRESS===========
+
+
+
+// FOOTER ==========
+.footer{
+  width: 100%;
+  height: 100px;
+  padding: 0 20px;
+  margin-top: 50px;
+  @include flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center; 
+  background-color: $header-background;
+  @include boxsizing;
+
+  &-nav{
+    
+    
+    &__items{
+      @include flexbox;
+      flex-direction: row;
+      
+      >li{
+        padding: 0 10px;
+        >a{
+          font-size: 0.9em;
+          line-height: 40px;
+          color: $font-global-color;
+        }
+      }
+    }
+  }
+
+  &-logo{
+    p{
+      font-weight: 900;
+      font-size: 1.1em;
+      color: $font-global-color;
+
+    }
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+// MENU ============
+.menu{
+  display: none;
+}
+// end MENU ============
+
+
+// POPUPMODAL ============
+.popupmodal{
+  @include flexbox;
+  flex-direction: column;
+  
+  &-content{
+    @include flexbox;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 0 30px;
+    position: relative;
+    width: 500px;
+    height: 200px;
+    margin: auto;
+    background-color: $popupmodal-bg; 
+    @include boxsizing;
+
+    .close-popupmodal{
+      position: absolute;
+      top: 14px;
+      right: 14px;
+      
+      cursor: pointer;
+      background: transparent;
+
+      >i{
+        color: $popupmodal-color;
+        font-size: 1.5em;
+        line-height: 20px;
+      }
+    }
+
+    p{
+      text-align: center;
+      font-size: 1.3em;
+      line-height: 1.3;
+      padding-bottom: 10px;
+    }
+  }
+}
+// end POPUPMODAL ============
+
+// VIEWIMG =============
+
+.viewimg{
+  @include flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .close-viewimg{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    
+    width: 40px;
+    height: 40px;
+    border: 1px solid $viewimg-color;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+
+    >i{
+      font-size: 1.3em;
+      line-height: 40px;
+      color: $viewimg-color;
+    }
+  }
+
+  &-content{
+    width: 100%;
+    height: 80%;
+    img{
+      object-fit: contain;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// end VIEWIMG =============
+// VIEWMENU =============
+
+.viewmenu{
+  @include flexbox;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .close-viewmenu{
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    
+    width: 40px;
+    height: 40px;
+    border: 1px solid $viewimg-btn;
+    border-radius: 50%;
+    text-align: center;
+    cursor: pointer;
+    background: transparent;
+
+    >i{
+      font-size: 1.3em;
+      line-height: 40px;
+      color: $viewimg-btn;
+    }
+  }
+
+  &-content{
+    width: 80%;
+
+    img{
+      object-fit: cover;
+      width: 100%;
+      height: 100%;
+    }
+  }
+}
+
+// end VIEWMENU =============
+
+
+
+/*====================SCRIPT LOADING====================*/
+#loading{
+  display: none;
+  align-items: center;
+  justify-content: center;
+  position: fixed;
+  top: 0;bottom: 0;
+  left: 0;right: 0;
+  background-color: $loading-bg;
+  z-index: 9999;
+  img{
+    width: 160px;
+    height: 20px;
+  }
+} 
+
+.hidden{
+  opacity: 0;
+}
+.visible{
+  opacity: 1;
+}
+
+
+
+
+
+
+
+/*==================== end SCRIPTS LOADING====================*/ 
+
+@import "media";
+
+
+
+
+
