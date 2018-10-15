@@ -36,7 +36,18 @@ if(isset($_POST['submit'])){
         $hash = md5(generateCode(10));
 
 
-        // Записываем в БД новый хеш авторизации и IP
+        if(!empty($_POST['not_attach_ip']))
+        {
+            // Если пользователя выбрал привязку к IP
+            // Переводим IP в строку
+            $insip = ", user_ip=INET_ATON('".$_SERVER['REMOTE_ADDR']."')";
+
+            // Записываем в БД новый хеш авторизации и IP
+            mysqli_query($link, "UPDATE admins SET user_hash='".$hash."' ".$insip." WHERE user_id='".$data['user_id']."'");
+        }
+
+
+        // Записываем в БД новый хеш авторизации без IP
         mysqli_query($link, "UPDATE admins SET user_hash='" . $hash . "' WHERE user_id='" . $data['user_id'] . "' ");
 
         //ставим cookie
@@ -63,5 +74,6 @@ if(isset($_POST['submit'])){
 <form method="POST">
     Логин <input name="login" type="text" required><br>
     Пароль <input name="password" type="password" required><br>
+    Не прикреплять к IP(не безопасно) <input type="checkbox" name="not_attach_ip"><br>
     <input name="submit" type="submit" value="Войти">
 </form>
