@@ -20,7 +20,6 @@ if(isset($_COOKIE["ID"]) and isset($_COOKIE["HSH"])){
         print "Хм, что-то не получилось";
     }else{
         session_start();
-        $_SESSION["user"] = $userdata["user_login"];
         header("Location: index.php"); exit();
     }
 

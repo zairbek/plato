@@ -1,0 +1,167 @@
+// VARIABLES ========================
+// bg-colors
+$wrapper-background: #dedede;
+$header-background: #fff;
+$aside-background: #fff;
+$hover-bg: rgba(250, 250, 250, 1);
+$section-background: rgba(0, 0, 0, 0.329);
+$menu-review-center-side-bg: rgb(0,0,0);
+//  fonts
+$font-global-color: #000;
+$socials-hover-color: rgb(46, 171, 255);
+$hover-color: #000;
+// btn
+$btn:rgb(46, 255, 255);
+$btn-hover:rgb(255,255,255);
+// scripts
+$popupmodal-bg:  rgb(23, 173, 233);
+$popupmodal-color:  #fff;
+$viewimg-color:  #fff;
+$viewimg-btn:  #000;
+$loading-bg: #fff;
+$menu-btn-color: white;
+// VARIABLES ========================
+// mixins
+@mixin boxsizing{
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+}
+
+@mixin flexbox {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+}
+
+
+// CSS RESET ========================
+* {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  vertical-align: baseline;
+  font-family: Comfortaa;
+  color: $font-global-color;
+
+}
+body {
+  line-height: 1;
+}
+ol, ul {
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color: inherit;
+}
+// end of CSS RESET ========================
+
+html, body{
+  width: 100%;
+
+  .wrapper {
+    width: 100%;
+    position: relative;
+    @include boxsizing;
+    @include flexbox;
+    flex-direction: row;
+    background: $wrapper-background;
+
+  }
+}
+
+// HEADER ===========================
+
+.header{
+  width: 100%;
+  height: 40px;
+  padding: 0 10px;
+  position: fixed;
+  top: 0;
+  @include boxsizing;
+  @include flexbox;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+
+  background-color: $header-background;
+  box-shadow: 0 3px 3px 0px rgba(0,0,0,0.3);
+
+  .nav{
+
+    >a{
+      font-size: 0.9em;
+      padding: 0 10px;
+      line-height: 40px;
+    }
+  }
+
+  .admins{
+    >span, >a{
+      font-size: 0.9em;
+      padding: 0 10px;
+      line-height: 40px;
+    }
+  }
+}
+// end HEADER ===========================
+
+.aside, .content{
+  margin-top: 40px;
+}
+// ASIDE ===========================
+.aside{
+  width: 300px;
+
+
+
+  background-color: $aside-background;
+
+  >p{
+    width: 100%;
+    height: 40px;
+    padding-left: 10px;
+    font-size: 1em;
+    line-height: 40px;
+  }
+
+  &-nav{
+
+    >li{
+      display: block;
+      width: 100%;
+
+      >a{
+        display: block;
+        height: 40px;
+        padding-left: 20px;
+        font-size: 0.9em;
+        line-height: 40px;
+
+        transition: background .2s ease-in-out;
+
+        &:hover, &.active{
+          background-color: #dedede;
+        }
+      }
+    }
+  }
+}
+
+// end ASIDE ===========================
+
+// CONTENT ===========================
+.content{
+  width: 100%;
+
+}
+
+// end CONTENT ===========================
+
+
+
+
+    @import "media";

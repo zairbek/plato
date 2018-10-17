@@ -1,5 +1,5 @@
 <?php
-$link = mysqli_connect("localhost", "root", "1", "plato");
+require "../scripts/connect_db.php";
 
 if (isset($_POST["submit"])){
     $err = [];
@@ -11,8 +11,9 @@ if (isset($_POST["submit"])){
         $err[] = "Логин должен быть не меньше 6-х символов и не больше 30";
     }
 
-    $query = mysqli_query($link, "SELECT user_id FROM admins WHERE user_login'". mysqli_real_escape_string($link, $_POST['login'])."'" );
-    if(mysqli_num_rows($query) > 0){
+    $result = $mysqli->query("SELECT user_id FROM admins WHERE user_login ='". $mysqli->real_escape_string($_POST['login'])."'" );
+
+    if($result->num_rows !== 0){
         $err[] = "Пользователь с таким логином уже существует в базе данных";
     }
 
@@ -20,11 +21,10 @@ if (isset($_POST["submit"])){
         $login = $_POST['login'];
         $password = md5(md5(trim($_POST['password'])));
 
-        mysqli_query($link, "INSERT INTO admins SET user_login='". $login ."', user_password='". $password . "'");
-        header("Location: login.php"); exit();
+        $mysqli->query("INSERT INTO admins SET user_login='". $login ."', user_password='". $password . "'");
+        header("Location: enter/login.php"); exit();
 
     }else{
-        print "при регистрации произошли следующие ошибки:";
         foreach($err as $error){
             print $error. "<br>";
         }
@@ -38,3 +38,4 @@ if (isset($_POST["submit"])){
     Pass <input type="password" name="password">
     <input type="submit" name="submit" value="check in">
 </form>
+<a href="login.php">log in</a>
