@@ -65,6 +65,7 @@ html, body {
 
 .aside {
   width: 300px;
+  box-shadow: 3px 0 3px 0px rgba(0, 0, 0, 0.3);
   background-color: #fff; }
   .aside > p {
     width: 100%;
@@ -86,6 +87,228 @@ html, body {
         background-color: #dedede; }
 
 .content {
-  width: 100%; }
+  width: 100%;
+  max-height: 100%;
+  padding: 20px; }
+  .content section .navconfig {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    flex-direction: row;
+    justify-content: space-around;
+    flex-wrap: wrap; }
+    .content section .navconfig-form {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      flex-direction: column;
+      border-radius: 5px;
+      width: 45%;
+      padding: 20px;
+      margin-bottom: 20px;
+      background-color: #ffffff; }
+      .content section .navconfig-form label {
+        font-size: 1em;
+        color: #969692;
+        margin-bottom: 5px; }
+      .content section .navconfig-form input {
+        height: 30px;
+        font-size: 1em;
+        color: #fff;
+        padding: 0 10px;
+        margin-bottom: 5px;
+        background-color: #bfbfba; }
+
+.menu {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  flex-direction: column;
+  justify-content: space-around; }
+  .menu-form {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    flex-direction: column;
+    border-radius: 5px;
+    width: 100%;
+    padding: 20px;
+    margin-bottom: 20px;
+    background-color: #ffffff; }
+    .menu-form label {
+      font-size: 1em;
+      color: #969692;
+      margin-bottom: 5px; }
+    .menu-form input, .menu-form select {
+      height: 30px;
+      font-size: 1em;
+      color: #fff;
+      padding: 0 10px;
+      margin-bottom: 5px;
+      background-color: #bfbfba; }
+  .menu .container {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    flex-direction: column;
+    width: 100%;
+    padding: 40px;
+    margin: 0 auto;
+    background-color: rgba(0, 0, 0, 0.3);
+    -webkit-border-radius: 5px;
+    -moz-border-radius: 5px;
+    border-radius: 5px; }
+  .menu .intro_menu {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    width: 100%;
+    text-align: left; }
+    .menu .intro_menu h2 {
+      font-size: 1.3em;
+      padding: 10px 0;
+      border-bottom: 1px solid #000; }
+    .menu .intro_menu .grid {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      flex-direction: row;
+      justify-content: space-between;
+      align-content: flex-start;
+      align-items: flex-start;
+      width: 100%;
+      padding: 4px 20px; }
+      .menu .intro_menu .grid p {
+        text-align: left;
+        font-size: 0.9em;
+        line-height: 1.3em;
+        font-weight: 500; }
+
+.login-wrapper {
+  position: relative;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  background-color: #f2f2f2; }
+  .login-wrapper-block {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -ms-flexbox;
+    display: -webkit-flex;
+    display: flex;
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px 4px rgba(0, 0, 0, 0.5);
+    background-image: linear-gradient(to right top, #5cc1b3, #5bc9b2, #5ed0b0, #63d7ac, #6cdea7); }
+    .login-wrapper-block > h1, .login-wrapper-block > a {
+      font-weight: 100;
+      font-size: 1.5em;
+      line-height: 1;
+      text-align: center; }
+    .login-wrapper-block > form {
+      display: -webkit-box;
+      display: -moz-box;
+      display: -ms-flexbox;
+      display: -webkit-flex;
+      display: flex;
+      box-sizing: border-box;
+      -moz-box-sizing: border-box;
+      -webkit-box-sizing: border-box;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center; }
+      .login-wrapper-block > form > input {
+        box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        -webkit-box-sizing: border-box;
+        width: 100%;
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+        background-color: #fff;
+        transition: all .2s ease-in-out; }
+        .login-wrapper-block > form > input:focus {
+          background-color: #baf5ff; }
+
+.notification {
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
+  display: flex;
+  box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 300px;
+  border-radius: 10px;
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+  box-shadow: 0 3px 15px 4px rgba(0, 0, 0, 0.5);
+  background-image: linear-gradient(to right top, #5cc1b3, #5bc9b2, #5ed0b0, #63d7ac, #6cdea7); }
+  .notification .close-notification {
+    position: absolute;
+    top: 5px;
+    right: 6px; }
+    .notification .close-notification > i {
+      font-size: 1em;
+      color: rgba(0, 0, 0, 0.4); }
+  .notification .notification-content {
+    margin: 20px; }
+
+.hidden {
+  opacity: 0; }
+
+.visible {
+  opacity: 1; }
 
 /*# sourceMappingURL=main.css.map */

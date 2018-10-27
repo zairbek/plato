@@ -1,23 +1,14 @@
 <?php
 require "../scripts/connect_db.php";
+require "../scripts/lib.php";
 
 // Страница авторизации
 // Функция для генерации случайной строки
-function generateCode($length = 6){
-    $chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHI JKLMNOPRQSTUVWXYZ0123456789";
-    $code = "";
-    $clen = strlen($chars) -1;
-    while(strlen($code) < $length){
-        $code .= $chars[mt_rand(0,$clen)];
-    }
-    return $code;
-}
-
 
 if(isset($_POST['submit'])){
 
     // Вытаскиваем из БД запись, у которой логин равняеться введенному
-    $result = $mysqli->query("SELECT user_id, user_password FROM admins WHERE user_login='". $mysqli->real_escape_string($_POST['login']) . "' LIMIT 1");
+    $result = $mysqli->query("SELECT user_id, user_password FROM admins WHERE user_email='". $mysqli->real_escape_string($_POST['email']) . "' LIMIT 1");
     $data = $result->fetch_assoc();
 
     // Сравниваем пароли
@@ -33,28 +24,86 @@ if(isset($_POST['submit'])){
         setcookie("ID", $data['user_id'], time()+60*60*24*30);
         setcookie("HSH", $hash, time()+60*60*24*30, null, null, null, true);
         session_start();
-    $_SESSION["hash"] = $hash;
+        $_SESSION["hash"] = $hash;
+
 
         // Переадресовываем браузер на страницу проверки нашего скрипта
         header("Location: ../"); exit();
 
     }else{
-        print "Вы ввели неправильный логин/пароль";
+        $err[] = "Вы ввели неправильный email или пароль";
     }
 
 
 }
 
 
-
 ?>
 
+<!doctype html>
+<html lang="ru">
+<head style="overflow: hidden;">
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+
+    <link href="https://fonts.googleapis.com/css?family=Comfortaa" rel="stylesheet">
+    <link rel="stylesheet" href="../../css/library/fontAwasome/all.min.css">
+    <link rel="stylesheet" href="../../css/library/animate.css">
+    <link rel="stylesheet" href="../css/main.css">
+
+    <title>Вход в панель администратора</title>
+</head>
+<body style="overflow: hidden;">
+    
+    <div class="login-wrapper">
+
+        <div class="login-wrapper-block">
+            <h1>Панель администратора</h1>
+            <form method="POST" name="formEnter">
+                <input name="email" type="email" placeholder="EMAIL" minlength="4" maxlength="50" required><br>
+                <input name="password" type="password" placeholder="PASSWORD" minlength="8" maxlength="50"required><br>
+                <input name="submit" type="submit" value="LOG IN">
+            </form>
+            <a href="/">Plato</a>
+        </div>
 
 
-<form method="POST">
-    Логин <input name="login" type="text" required><br>
-    Пароль <input name="password" type="password" required><br>
-    <input name="submit" type="submit" value="Войти">
-</form>
 
-<a href="register.php">register</a>
+        <div class="notification hidden">
+            <div class="close-notification">
+                <i class="fas fa-times"></i>
+            </div>
+
+            <div class="notification-content">
+                <p class="notification-text"></p>
+            </div>
+        </div>
+
+    </div>
+
+
+
+
+    <?php
+    if(isset($err)){
+        echo jsonData($err);
+    }
+    ?>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/main.js"></script>
+
+    <script>
+        if(typeof(err) !== "undefined"){
+            notification(err);
+        }
+        if(document.formEnter){
+            var form = document.formEnter;
+            form.email.addEventListener('input', validateLogin.email);
+            form.password.addEventListener('input', validateLogin.password);
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,13 @@
+User-agent: googlebot
+Allow: /
+Disallow: /admin/ # запрещает обход страниц
+
+User-agent: Yandex
+Allow: /
+Disallow: /admin/ # запрещает обход страниц
+
+User-agent: *
+Allow: /
+Disallow: /admin/ # запрещает обход страниц
+
+sitemap: http://www.example.com/sitemap.xml

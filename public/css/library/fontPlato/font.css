@@ -1,0 +1,12 @@
+@font-face {
+  font-family: 'DIN2014-ExtraLight';
+  src: url('DIN2014-ExtraLight.eot');
+  src: url('DIN2014-ExtraLight.woff2') format('woff2'),
+       url('DIN2014-ExtraLight.woff') format('woff'),
+       url('DIN2014-ExtraLight.ttf') format('truetype'),
+       url('DIN2014-ExtraLight.svg#DIN2014-ExtraLight') format('svg'),
+       url('DIN2014-ExtraLight.eot?#iefix') format('embedded-opentype');
+  font-weight: normal;
+  font-style: normal;
+}
+

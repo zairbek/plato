@@ -252,7 +252,7 @@
       text-align: center;
       cursor: pointer;
       background: transparent;
-      transition: all .3s linear;
+      @include transition;
     }
 
     .nav-socials-1{
@@ -300,14 +300,14 @@
           padding: 20px 60px;
           border-bottom: 2px solid #fff;
           text-align: center;
-          transition: background .3s ease-in-out;
+          @include transition;
           
           a{
             color: #fff;
-            font-weight: 100;
+            font-weight: 700;
             font-size: 1.4em;
             line-height: 1.4em;
-            transition: color .3s ease-in-out;
+            @include transition;
           }
 
           &:hover a{
@@ -365,7 +365,13 @@
 
 
   // MENU-REVIEW=================== 
-
+  .menu-review-center-side{
+    p{
+      font-size: 0.9em;
+      line-height: 1em;
+      padding: 20px;
+    }
+  }
   // end MENU-REVIEW=================== 
 
 

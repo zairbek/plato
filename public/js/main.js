@@ -38,8 +38,8 @@ function init(){
   });
 
 
-  
-  $('.interior-right-side').slick({
+
+    $('.interior-right-side').slick({
     dots: true,
     infinite: true,
     autoplay: true,
@@ -49,22 +49,24 @@ function init(){
     slidesToShow: 1,
     adaptiveHeight: true
   });
-  //  SLIDES =========== 
-
-  //  LAZYLOADS ======== 
-  var menuRestourant = new LazyLoad({
+  //  SLIDES ===========
+    //  LAZYLOADS ========
+    var intro = new LazyLoad({
+        elements_selector: ".intro-bg_img"
+    })
+    var menuRestourant = new LazyLoad({
     elements_selector: ".menu-restourant-right-side_bg"
-  })
-  var menuReview = new LazyLoad({
+    })
+    var menuReview = new LazyLoad({
     elements_selector: ".menu-review-right-side_bg"
-  })
-  var interior = new LazyLoad({
-    elements_selector: ".interior-right-side_bg"
-  })
-  var dishes = new LazyLoad({
-    elements_selector: ".dishes-top-side_bg"
-  })
-  //  LAZYLOADS ======== 
+    })
+    var interior = new LazyLoad({
+        elements_selector: ".interior-right-side_bg"
+    })
+    var dishes = new LazyLoad({
+        elements_selector: ".dishes-top-side_bg"
+    })
+    //  LAZYLOADS ========
 
 
 
@@ -91,29 +93,22 @@ function init(){
   
 
   (function($){
-    $("img").each(function(k,v){
+    $("img[data-href]").each(function(k,v){
       $(v).animatedModal({
         modalTarget: "viewimg",
-        color: "rgb(23, 173, 233)",
+        color: "rgba(0,0,0,.7)",
         animationDuration: ".3s",
         animatedIn: "fadeInUp",
         animatedOut: "fadeOutDown",
       });
       $(v).click(function(e){
         var src = $(this).attr("data-src");
-        $(".viewimg-content img").attr("src", src);      
+        $(".viewimg-content > img").attr("src", src);
       })
       
     })    
   })(jQuery)
 
-  $("#menu-restourant-left-side-link-to").animatedModal({
-    modalTarget: "viewmenu",
-    color: "rgb(255, 255, 255)",
-    animationDuration: ".6s",
-    animatedIn: "bounceInDown",
-    animatedOut: "bounceOutUp"
-  });
   // end  ANIMATEDMODAL ========= 
 
 
@@ -154,10 +149,20 @@ function init(){
 // FINISHED========
 getId = (attr) => document.getElementById(attr);
 
-window.onresize = function(){
-  stretchBlock(getId("intro"), "1/1");
-  stretchBlock(getId("menu-review"), "1/1");
-};
+
+if(typeDevice() != 'desktop'){
+  window.addEventListener('orientationchange', function(){
+    stretchBlock(getId("intro"), "1/1");
+    stretchBlock(getId("menu-review"), "1/1");
+})
+
+}else{
+  window.onresize = function(){
+    stretchBlock(getId("intro"), "1/1");
+    stretchBlock(getId("menu-review"), "1/1");
+  }
+}
+
 
 function stretchBlock(attr, size){
   let h = window.innerHeight;

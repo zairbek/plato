@@ -117,6 +117,7 @@ html, body{
   width: 300px;
 
 
+  box-shadow: 3px 0 3px 0px rgba(0,0,0,0.3);
 
   background-color: $aside-background;
 
@@ -156,12 +157,265 @@ html, body{
 // CONTENT ===========================
 .content{
   width: 100%;
+  max-height: 100%;
+  padding: 20px;
 
+  section{
+
+    .navconfig{
+      @include flexbox;
+      @include boxsizing;
+      flex-direction: row;
+      justify-content: space-around;
+
+      flex-wrap: wrap;
+
+
+      &-form{
+        @include flexbox;
+        @include boxsizing;
+        flex-direction: column;
+        border-radius: 5px;
+        width: 45%;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        background-color: #ffffff;
+        label{
+          font-size: 1em;
+          color: #969692;
+          margin-bottom: 5px;
+        }
+        input{
+          height: 30px;
+          font-size: 1em;
+          color: #fff;
+          padding: 0 10px;
+          margin-bottom: 5px;
+          background-color: #bfbfba;
+        }
+
+      }
+    }
+
+  }
 }
 
+
+
+
+
+
+    //menu = ========
+
+    .menu{
+      @include flexbox;
+      @include boxsizing;
+      flex-direction: column;
+      justify-content: space-around;
+
+
+      &-form{
+        @include flexbox;
+        @include boxsizing;
+        flex-direction: column;
+        border-radius: 5px;
+        width: 100%;
+        padding: 20px;
+        margin-bottom: 20px;
+
+        background-color: #ffffff;
+        label{
+          font-size: 1em;
+          color: #969692;
+          margin-bottom: 5px;
+        }
+        input,select{
+          height: 30px;
+          font-size: 1em;
+          color: #fff;
+          padding: 0 10px;
+          margin-bottom: 5px;
+          background-color: #bfbfba;
+        }
+
+      }
+
+
+      .container{
+        @include flexbox;
+        @include boxsizing;
+        flex-direction: column;
+        width: 100%;
+        padding: 40px;
+        margin: 0 auto;
+
+        background-color: rgba(0,0,0,.3);
+        -webkit-border-radius: 5px;
+        -moz-border-radius: 5px;
+        border-radius: 5px;
+      }
+
+      .intro_menu{
+        @include boxsizing;
+        width: 100%;
+        text-align: left;
+
+        h2{
+          font-size: 1.3em;
+          padding: 10px 0;
+          border-bottom: 1px solid #000;
+        }
+
+        .grid{
+          @include flexbox;
+          @include boxsizing;
+          flex-direction: row;
+          justify-content: space-between;
+          align-content: flex-start;
+          align-items: flex-start;
+          width: 100%;
+          padding: 4px 20px;
+
+          p{
+            text-align: left;
+            font-size: 0.9em;
+            line-height: 1.3em;
+            font-weight: 500;
+          }
+        }
+      }
+
+
+    }
+    //menu=====
 // end CONTENT ===========================
 
 
 
 
-    @import "media";
+
+
+
+// LOGIN.PHP ===========================================
+// variables
+//bg
+$login-wrapper_bg: #f2f2f2;
+$login-wrapper-block_bg: linear-gradient(to right top, #5cc1b3, #5bc9b2, #5ed0b0, #63d7ac, #6cdea7);
+
+
+//end bg
+
+
+// end variables
+
+.login-wrapper{
+  position: relative;
+  @include flexbox;
+  @include boxsizing;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+
+  background-color: $login-wrapper_bg;
+
+  &-block{
+    @include flexbox;
+    @include boxsizing;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+
+    width: 300px;
+    height: 500px;
+    border-radius: 10px;
+    box-shadow: 0 3px 15px 4px rgba(0,0,0,0.5);
+
+    background-image: $login-wrapper-block_bg;
+
+    >h1, >a{
+      font-weight: 100;
+      font-size: 1.5em;
+      line-height: 1;
+      text-align: center;
+    }
+
+
+    >form{
+      @include flexbox;
+      @include boxsizing;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+
+
+      >input{
+        @include boxsizing;
+        width: 100%;
+
+        padding: 10px;
+        font-size: 1em;
+        border-radius: 5px;
+
+        background-color: #fff;
+
+        transition: all .2s ease-in-out;
+
+        &:focus{
+          background-color: #baf5ff;
+        }
+      }
+    }
+  }
+}
+
+
+// notification
+.notification{
+  @include flexbox;
+  @include boxsizing;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  width: 300px;
+  //height: 100px;
+  border-radius: 10px;
+
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  z-index: 9999;
+
+  box-shadow: 0 3px 15px 4px rgba(0,0,0,0.5);
+  background-image: $login-wrapper-block_bg;
+
+  .close-notification{
+    position: absolute;
+    top: 5px;
+    right: 6px;
+
+    >i{
+      font-size: 1em;
+      color: rgba(0,0,0,.4);
+    }
+  }
+
+  .notification-content{
+    margin: 20px;
+  }
+}
+
+
+.hidden{
+  opacity: 0;
+}
+.visible{
+  opacity: 1;
+}
+
+// end notification
+// end LOGIN.PHP ===========================================
+
+
+@import "media";
